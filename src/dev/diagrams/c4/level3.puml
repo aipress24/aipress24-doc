@@ -1,0 +1,73 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+
+' scale 2480*3508
+scale 3508*2480
+
+LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+title Component diagram for AIpress24
+
+Container_Boundary(aipress24, "AIpress24 App") {
+    Component(users, "Users", "")
+    Component(profiles, "Profiles", "")
+    Component(registration, "Registration", "")
+    Component(auth, "Auth", "")
+    Component(rbac, "RBAC (access control)", "OSO")
+    Component(activities, "Activity streams and notifications", "")
+    Component(search, "Search", "")
+    Component(document_types, "Document types", "")
+    Component(document_store, "Document store", "")
+    Component(bpm, "BPM (Workflow)", "")
+    Component(wallet, "Wallet", "")
+    Component(orm, "ORM", "SQLAlchemy")
+}
+
+Container_Boundary(other_containers, "Other containers") {
+    ContainerDb(db, "Relational Database", "PostgreSQL", "Holds user profiles, content metadata, application state, etc.", $sprite="postgresql")
+    ContainerDb(redis, "Redis DB", "Redis", "Cache, notifications, etc.", $sprite="redis")
+    ContainerDb(s3, "BLOB store", "S3 compatible (Minio, Ceph, Swift...)", "Holds contents (documents, photos, movies...)", $sprite="folder_open")
+    ContainerDb(search_index, "Search index", "Elastic or similar", "Holds search index and metadata", $sprite="search")
+
+    Container(email, "Email", "SMTP/IMAP", "")
+    Container(payment, "Payment Gateway", "REST", "")
+    Container(bank, "Bank", "REST", "")
+    Container(oauth, "OAuth Providers", "OAuth", "")
+}
+
+
+Rel_U(auth, users, "Uses")
+Rel_U(profiles, users, "Uses")
+Rel_U(registration, users, "Uses")
+Rel_U(rbac, auth, "Uses")
+Rel_U(activities, profiles, "Uses")
+Rel(bpm, rbac, "Uses")
+Rel(rbac, bpm, "Uses")
+Rel_U(bpm, document_types, "Uses")
+Rel(document_store, search, "Updates")
+Rel_U(search, rbac, "Uses")
+Rel_U(document_store, document_types, "Uses")
+Rel(users, orm, "Uses")
+Rel(profiles, orm, "Uses")
+Rel(document_store, orm, "Uses")
+
+' Rel w/ external components
+
+Rel_D(registration, email, "Uses")
+Rel_D(registration, oauth, "Uses")
+Rel_D(auth, oauth, "Uses")
+Rel_D(orm, db, "Uses")
+Rel_D(document_store, s3, "Uses")
+Rel_D(search, search_index, "Uses")
+Rel_D(bpm, orm, "Uses")
+Rel_D(bpm, email, "Uses")
+Rel_D(activities, redis, "Uses")
+Rel_D(activities, email, "Uses")
+Rel_D(users, wallet, "Has a")
+Rel_D(wallet, payment, "Uses")
+Rel_D(wallet, bank, "Uses")
+Rel_D(wallet, db, "Uses")
+@enduml

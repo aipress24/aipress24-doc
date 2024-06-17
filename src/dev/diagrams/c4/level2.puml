@@ -1,0 +1,41 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/python.puml
+!include DEVICONS/postgresql.puml
+!include DEVICONS/redis.puml
+!include FONTAWESOME/users.puml
+!include FONTAWESOME/search.puml
+!include FONTAWESOME/folder_open.puml
+
+
+scale 3508*2480
+
+'LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+title Container diagram for AIpress24
+
+Person(user, "User", "Users the platform (according to its user profile and permissions)", $sprite="users")
+
+Boundary(aipress24, "AIpress24") {
+    Container(webapp, "Web App", "HTML5", "The main interface that the user interacts with")
+    Container(api, "API", "Python", "Handles all business logic", $sprite="python")
+
+    ContainerDb(db, "Database", "PostgreSQL", "Holds user profiles, content metadata, application state, etc.", $sprite="postgresql")
+    ContainerDb(redis, "NoSQL DB", "Redis", "Cache, notifications, etc.", $sprite="redis")
+    ContainerDb(s3, "BLOB store", "S3 compatible (Minio, Ceph, Swift...)", "Holds contents (documents, photos, movies...)", $sprite="folder_open")
+    ContainerDb(search, "Search index", "Elastic or similar", "Holds search index and metadata", $sprite="search")
+}
+
+Rel(user, webapp, "Uses", "https")
+Rel(webapp, api, "Uses", "https")
+Rel(api, db, "Reads/Writes")
+Rel(api, redis, "Reads/Writes")
+Rel(api, s3, "Reads/Writes")
+Rel(api, search, "Reads/Writes")
+
+@enduml

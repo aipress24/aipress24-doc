@@ -1,0 +1,45 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+'LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+scale 3508*2480
+
+title System Landscape diagram for AIpress24
+
+Person_Ext(guest_user, "Anyonymous / Guest User", "User with very limited access to the features of the platform")
+Person_Ext(registered_user, "Registered User", "User of the platform (according to their user profile and permissions)")
+
+Enterprise_Boundary(c0, "AIpress24") {
+    Person(admin_user, "Customer Service Staff", "Customer service staff within the bank.")
+
+    System(aipress24, "AIpress24", "Digital workspace for press and PR profesionnals")
+    System(erp, "ERP/5", "Manages accounting for AIpress24")
+}
+
+' External systems
+System_Ext(waf, "WAF (Sqreen)", "Sqreen")
+System_Ext(auth_providers, "OAuth providers", "OAuth providers (Linkedin, Google, Tweeter...)")
+System_Ext(email, "Email system", "Sends emails (alerts, etc.)")
+System_Ext(payment, "Payment Gateway", "Manages credit card payments")
+System_Ext(bank, "Bank", "Manages funds and payments to journalists")
+
+Rel_D(guest_user, aipress24, "Uses", "https")
+Rel_D(registered_user, aipress24, "Uses", "https")
+Rel_D(admin_user, aipress24, "Uses", "https")
+
+Rel(aipress24, auth_providers, "Uses", "OAuth")
+Rel(aipress24, waf, "Uses")
+Rel(aipress24, email, "Uses", "SMTP/IMAP")
+Rel(aipress24, erp, "Uses", "XML-RPC")
+Rel(aipress24, payment, "Uses", "REST")
+Rel(aipress24, bank, "Uses", "REST")
+
+Rel_U(email, registered_user, "Sends emails to", "SMTP")
+Rel_U(email, admin_user, "Sends emails to", "SMTP")
+Rel_U(auth_providers, registered_user, "Authenticates", "OAuth")
+Rel_U(auth_providers, admin_user, "Authenticates", "OAuth")
+
+@enduml

@@ -1,0 +1,313 @@
+@startuml
+
+'References:
+'https://www.afp.com/communication/iris/Guide_to_AFP_NewsML-G2.html
+'https://www.iptc.org/std/NewsML-G2/guidelines/
+
+title Types de contenu - Class Diagram (draft)
+
+
+'-----------------------------------------------------------------
+'Main abstract classes
+'-----------------------------------------------------------------
+
+abstract class BaseContent {
+    +creators: list[Person]
+    +contributors: list[Person]
+
+    +date_created: DateTime
+    +date_modified: DateTime
+
+    +keywords: list[String]
+}
+note left: "Classe de base de tous les contenus de l'application"
+
+abstract class EditorialContent {
+    +copyright_holder: string
+    +copyright_notice: string
+
+    +title: string
+    +pub_status: string
+
+    +genres: set[string]
+    +language: stringng
+
+    +url: URI
+    +info_source: URI
+}
+EditorialContent -up-|> BaseContent
+
+abstract class TextEditorialContent {
+    +body_html: HTML
+}
+TextEditorialContent -up-|> EditorialContent
+
+
+'-----------------------------------------------------------------
+'Event package
+'-----------------------------------------------------------------
+
+abstract class Event {
+    +name: string
+    +note: string
+    +start_date: DateTime
+    +end_date: DateTime
+    +location: Location
+}
+Event -up-|> BaseContent
+
+class PressEvent {
+    +type: <PressConference, PressBriefing, PressMeal>
+}
+PressEvent -up-|> Event
+
+
+class PublicEvent {
+    +type: <Webinar, TradeShow, Symposium, TrainingEvent, Demonstration, FlashMob, Meetup...>
+    +sector: [choices TBD]
+    +audience: [choices TBD]
+    +is_paying: bool
+    +is_online: bool
+    +is_irl: bool
+}
+PublicEvent -up-|> Event
+
+
+'-----------------------------------------------------------------
+'Textual editorial content
+'-----------------------------------------------------------------
+
+class Article {
+    +subheader: string
+    +categories: list[string]
+}
+Article -up-|> TextEditorialContent
+
+
+class OpEd {
+}
+note bottom: c'est la même chose qu'un article, mais avec process différent
+OpEd -up-|> Article
+
+class Pige {
+}
+note bottom: c'est la même chose qu'un article, mais avec process différent
+Pige -up-|> Article
+
+'-----------------------------------------------------------------
+'Multimedia & Composite (editorial) content
+'-----------------------------------------------------------------
+
+abstract class MultimedialContent {
+    +format: string
+    +description: string
+    +file_size: integer
+}
+MultimedialContent -up-|> EditorialContent
+
+abstract class VisualContent {
+    +height: integer
+    +width: integer
+    +resolution: string
+}
+VisualContent -up-|> MultimedialContent
+
+class Image {
+}
+Image -up-|> VisualContent
+
+class Photo {
+    +exif_metadata: dict
+}
+Photo -up-|> Image
+
+class Illustration {
+}
+Illustration -up-|> Image
+
+class Dataviz {
+}
+Dataviz -up-|> Image
+
+class Video {
+    +duration: integer
+    +encoding: string
+    +transcript: string
+}
+Video -up-|> VisualContent
+
+class Audio {
+    +duration: integer
+    +encoding: string
+    +transcript: string
+}
+Audio -up-|> MultimedialContent
+
+class Composite {
+    +TODO
+}
+Composite -up-|> MultimedialContent
+
+class ReportagePhoto {
+}
+ReportagePhoto -up-|> Composite
+
+
+'-----------------------------------------------------------------
+'Job content
+'-----------------------------------------------------------------
+
+class JobPost {
+    +rome_code string
+    +location Location
+    +min_salary: currency
+    +max_salary: currency
+
+    +body_html string
+    +context string
+    +mission string
+}
+JobPost -up-|> BaseContent
+JobPost -- Employer
+
+class Employer {
+}
+Employer -- OrganisationPage
+
+
+'-----------------------------------------------------------------
+'Pre-editorial process
+'-----------------------------------------------------------------
+
+abstract class PreEditorialContent {
+}
+PreEditorialContent -up-|> BaseContent
+
+class Pitch {
+}
+note bottom: comment on dit en anglais ?
+Pitch -up-|> PreEditorialContent
+
+class CallForWitnesses {
+}
+CallForWitnesses -up-|> PreEditorialContent
+
+class NoticeOfEnquiry {
+}
+NoticeOfEnquiry -up-|> PreEditorialContent
+
+class Brief {
+}
+note bottom: comment on dit en anglais ?
+Brief -up-|> PreEditorialContent
+
+
+'-----------------------------------------------------------------
+'Communication content
+'-----------------------------------------------------------------
+
+class CommunicationContent {
+    +sender: string
+}
+CommunicationContent -up-|> BaseContent
+
+class PressRelease {
+    +title: string
+    +subheader: string
+    +categories: list[string]
+    +release_date: DateTime
+    +embargo_date: DateTime
+
+    +about: string
+
+    +attachments: list[Attachment]
+}
+PressRelease -up-|> CommunicationContent
+
+class PressKit {
+}
+PressKit -up-|> CommunicationContent
+
+' class PressKit {
+' }
+' PressKit -up-|> CommunicationContent
+
+' class Backgrounder {
+' }
+' Backgrounder -up-|> CommunicationContent
+
+' class Study {
+' }
+' Study -up-|> CommunicationContent
+
+' class FinancialReport {
+' }
+' FinancialReport -up-|> CommunicationContent
+
+' class ExpertOpinion {
+' }
+' ExpertOpinion -up-|> CommunicationContent
+
+
+'-----------------------------------------------------------------
+'Marketplace content
+'-----------------------------------------------------------------
+
+abstract class MarketplaceContent {
+}
+MarketplaceContent -up-|> BaseContent
+
+class ServicesProposal {
+    +valid_from DateTime
+    +valid_until DateTime
+
+    +description HTML
+}
+ServicesProposal -up-|> MarketplaceContent
+
+class RFP {
+    +open_from DateTime
+    +open_until DateTime
+    +...
+}
+RFP -up-|> MarketplaceContent
+
+class ResponseToRFP {
+}
+ResponseToRFP -up-|> MarketplaceContent
+ResponseToRFP --o RFP
+
+
+'-----------------------------------------------------------------
+'Corporate pages / info
+'-----------------------------------------------------------------
+
+abstract class OrganisationPage {
+    +website_url URL
+    +linkedin_url URL
+    +siren_number SIREN
+    +mission HTML
+    +baseline string
+    +logo Image
+}
+OrganisationPage -up-|> BaseContent
+
+class MediaCompanyPage {
+    +NoAgreement: string
+    TODO contenu à définir
+}
+note bottom: Avec un numéro d agrément ou un numéro de Commission Paritaire
+
+MediaCompanyPage -up-|> OrganisationPage
+
+class CommunicationCompanyPage {
+    TODO contenu à définir
+}
+CommunicationCompanyPage -up-|> OrganisationPage
+
+class OtherOrganisationPage {
+    TODO contenu à définir
+}
+OtherOrganisationPage -up-|> OrganisationPage
+
+@enduml

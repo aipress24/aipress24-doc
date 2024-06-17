@@ -1,0 +1,168 @@
+@startuml
+class CultureEvent {
+}
+class PreEditorialContent {
+}
+class JobPost {
+}
+class PublicEvent {
+}
+class TextEditorialContent {
+}
+class PressRelease {
+}
+class BaseContent {
+}
+class Article {
+}
+class ContestEvent {
+}
+class Role {
+}
+class Activity {
+}
+class Promotion {
+}
+class GeoArea {
+}
+class GeoCity {
+}
+class MarketplaceContent {
+}
+class TagApplication {
+}
+class EditorialContent {
+}
+class GeoGeocoding {
+}
+class GeoDepartment {
+}
+class Report {
+}
+class EditorialProduct {
+}
+class VisualContent {
+}
+class PressEvent {
+}
+class Pitch {
+}
+class MultimedialContent {
+}
+class Event {
+}
+class GeoCountry {
+}
+class CV {
+}
+class Image {
+}
+class Organisation {
+}
+class User {
+}
+class Purchase {
+}
+class TrainingEvent {
+}
+class CallForWitnesses {
+}
+class Comment {
+}
+class Group {
+}
+class Post {
+}
+class GeoCoordinate {
+}
+
+CultureEvent -up-|> Event
+PreEditorialContent -up-|> BaseContent
+JobPost -up-|> IdMixin
+JobPost -up-|> LifeCycleMixin
+JobPost -up-|> Owned
+JobPost -up-|> Base
+PublicEvent -up-|> Event
+TextEditorialContent -up-|> EditorialContent
+PressRelease -up-|> BaseContent
+PressRelease -up-|> ClassificationMixin
+PressRelease -up-|> Taggable
+PressRelease -up-|> Searchable
+BaseContent -up-|> IdMixin
+BaseContent -up-|> LifeCycleMixin
+BaseContent -up-|> Owned
+BaseContent -up-|> Base
+Article -up-|> TextEditorialContent
+ContestEvent -up-|> Event
+Role -up-|> Base
+Role -up-|> RoleMixin
+Activity -up-|> IdMixin
+Activity -up-|> Timestamped
+Activity -up-|> Base
+Promotion -up-|> Base
+GeoArea -up-|> Base
+GeoCity -up-|> Base
+MarketplaceContent -up-|> IdMixin
+MarketplaceContent -up-|> LifeCycleMixin
+MarketplaceContent -up-|> Owned
+MarketplaceContent -up-|> Base
+TagApplication -up-|> Timestamped
+TagApplication -up-|> IdMixin
+TagApplication -up-|> Base
+EditorialContent -up-|> BaseContent
+EditorialContent -up-|> UserFeedbackMixin
+EditorialContent -up-|> Publishable
+EditorialContent -up-|> ClassificationMixin
+EditorialContent -up-|> CopyrightMixin
+EditorialContent -up-|> Taggable
+EditorialContent -up-|> Searchable
+GeoGeocoding -up-|> Base
+GeoDepartment -up-|> Base
+Report -up-|> IdMixin
+Report -up-|> Owned
+Report -up-|> LifeCycleMixin
+Report -up-|> Base
+EditorialProduct -up-|> MarketplaceContent
+EditorialProduct -up-|> ClassificationMixin
+EditorialProduct -up-|> Publishable
+VisualContent -up-|> MultimedialContent
+PressEvent -up-|> Event
+Pitch -up-|> PreEditorialContent
+MultimedialContent -up-|> EditorialContent
+Event -up-|> BaseContent
+Event -up-|> UserFeedbackMixin
+Event -up-|> Publishable
+Event -up-|> Searchable
+GeoCountry -up-|> Base
+CV -up-|> IdMixin
+CV -up-|> LifeCycleMixin
+CV -up-|> Owned
+CV -up-|> Base
+Image -up-|> VisualContent
+Organisation -up-|> IdMixin
+Organisation -up-|> LifeCycleMixin
+Organisation -up-|> Owned
+Organisation -up-|> Base
+User -up-|> Base
+User -up-|> UserMixin
+Purchase -up-|> IdMixin
+Purchase -up-|> Owned
+Purchase -up-|> Base
+TrainingEvent -up-|> Event
+CallForWitnesses -up-|> PreEditorialContent
+Comment -up-|> IdMixin
+Comment -up-|> Owned
+Comment -up-|> LifeCycleMixin
+Comment -up-|> Base
+Group -up-|> IdMixin
+Group -up-|> Owned
+Group -up-|> LifeCycleMixin
+Group -up-|> Base
+Post -up-|> Base
+Post -up-|> IdMixin
+Post -up-|> Owned
+Post -up-|> LifeCycleMixin
+Post -up-|> UserFeedbackMixin
+GeoCoordinate -up-|> Base
+
+@enduml

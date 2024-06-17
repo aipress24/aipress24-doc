@@ -1,0 +1,40 @@
+@startuml
+
+skinparam titleBorderColor gray
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+
+title Cycle de vie des sujets
+
+[*] --> Emerging
+Emerging : "En émergence"
+Emerging --> Abandonned : Abandonner
+Emerging --> Under_Discussion : Activer
+
+Under_Discussion : "En discussion"
+Under_Discussion --> Abandonned : Abandonner
+Under_Discussion --> To_Dig : Demander de creuser
+Under_Discussion --> Ordered : Commander
+Under_Discussion --> Rejected : Rejeter
+
+To_Dig : "A creuser"
+To_Dig --> Abandonned : Abandonner
+To_Dig --> Ordered : Commander
+
+Ordered : "Commandé"
+Ordered --> Abandonned : Abandonner
+Ordered --> Delivered : Livrer
+note left of Ordered : Création (automatique) d'un BdC
+
+Rejected : "Rejeté"
+Rejected --> Abandonned : Abandonner
+Rejected --> Under_Discussion : Réactiver
+
+Abandonned : "Abandonné"
+Abandonned --> [*]
+
+Delivered : "Livré"
+Delivered --> [*]
+note left of Delivered: Ajout du ou des livrables par le/la journaliste
+
+@enduml

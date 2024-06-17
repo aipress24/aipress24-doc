@@ -1,0 +1,113 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class User {
+    +nom
+    +prenom
+    +ville
+    +pays
+    +telephone_fixe
+    +telephone_portable
+    +email
+    +visibilite_infos_contact: TODO
+    +nationalite
+    +langues_parlees
+    +competences
+    +fonctions_exercees
+    +carte_de_press: bool
+}
+
+abstract class Role {
+
+}
+
+User *-- Role : Rôle pincipal
+User *-- Role : Rôle secondaire
+
+class RoleJournaliste {
+    +statut: set[StatutJournaliste]
+    +interets: set[InteretJournaliste]
+    +repartition_activites: TODO
+}
+
+Role <|-down- RoleJournaliste
+
+
+enum StatutJournaliste {
+    JOURNALISTE_PERMANENT
+    CADRE_REDACTIONNEL
+    PIGISTE
+}
+
+enum ActiviteJournaliste {
+    JOURNALISME
+    ANIMER_TABLE_RONDE
+    AUTRES
+}
+
+enum InteretJournaliste {
+    FAIRE_DES_PIGES
+    ANIMER_TABLE_RONDE
+    REMPLACEMENTS
+    CDD
+    CDI
+}
+
+class RoleCommunicant {
+    +interets: set[InteretCommunicant]
+    +repartition_activites: TODO
+}
+
+Role <|-down- RoleCommunicant
+
+enum InteretCommunicant {
+    REDIGER_DOSSIERS_DE_PRESSE
+    REDIGER_LIVRES_BLANCS
+    REDIGER_PUBLI_REPORTAGES
+    ANIMER_TABLES_RONDES
+    MEDIA_COACHING
+    AUTRE
+}
+
+
+'
+'
+'
+class RoleLeader {
+    +repartition_activites: TODO
+}
+
+Role <|-down- RoleLeader
+
+enum ActiviteLeader {
+    DIRECTION_ENTREPRISE
+    ENTREPRENARIAT
+    DELEGUE_PERSONNEL
+    REPRESENTATION_SYNDICALE
+    AUTRE
+}
+
+'
+'
+'
+class RoleDeveloppeur {
+
+}
+
+Role <|-down- RoleDeveloppeur
+
+
+class Organisation {
+    +nom: string
+    +SIREN: string
+    +type: string
+    More (TODO)
+}
+
+Role -- Organisation
+
+note "Un utilisateur a un rôle dans le cadre d'une organisation" as N1
+N1 .. Organisation
+N1 .. Role
+
+@enduml
