@@ -112,7 +112,7 @@ nav:
   - Home: index.md
   - Utilisateurs:
     - Intro: user/index.md
-  - Développeurs:
+  - Developers:
     - Intro: dev/index.md
     - Architecture: dev/architecture.md
     - Database: dev/database.md
@@ -120,3 +120,6 @@ nav:
     - API (back-end): dev/api.md
     - Front-End: dev/front-end.md
     - Misc. Notes: dev/notes.md
+    - Dolibarr Integration: dev/dolibarr.md
+    - Glossary: dev/glossary.md
+    - Tests: dev/tests.md
