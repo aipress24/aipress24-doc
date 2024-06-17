@@ -6,8 +6,14 @@ authors = ["Stefane Fermigier <sf@abilian.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 
+mkdocs-material = "^9.5.27"
+mkdocs-material-extensions = "^1.3.1"
+mkdocs-roamlinks-plugin = "^0.3.2"
+mkdocs-with-pdf = "^0.9.3"
+mkdocstrings = { extras = ["python"], version = "*" }
+sqla2uml = "^0.1.4"
 
 [build-system]
 requires = ["poetry-core"]

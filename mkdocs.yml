@@ -63,7 +63,7 @@ plugins:
   - roamlinks
   - with-pdf:
       author: Stefane Fermigier / Erick Haensen / ...
-      copyright: © 2022 Agence TCA (user doc) & Abilian (tech doc)
+      copyright: © 2022-2024 Agence TCA (user doc) & Abilian (tech doc)
       cover: true
       back_cover: false
       cover_title: AIpress24
@@ -98,15 +98,15 @@ plugins:
       #debug_html: true
       #show_anchors: true
       #verbose: true
-  - mkdocstrings:
-      default_handler: python
-      handlers:
-        python:
-          rendering:
-            show_source: false
-      custom_templates: templates
-      watch:
-        - ../src/app
+#  - mkdocstrings:
+#      default_handler: python
+#      handlers:
+#        python:
+#          rendering:
+#            show_source: false
+#      custom_templates: templates
+#      watch:
+#        - ../src/app
 
 nav:
   - Home: index.md
