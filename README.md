@@ -2,10 +2,23 @@
 
 ## Installation
 
+Assuming you have Python and [uv](https://docs.astral.sh/uv/) installed, run:
+
 ```bash
-poetry install --no-root
-make
+uv sync
 ```
+
+Main commands:
+
+```bash
+uv run make build
+# or
+uv run make serve
+# or
+uv run make watch
+```
+
+Type `uv run make help` to see all available commands.
 
 ## TODO
 

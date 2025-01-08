@@ -1,17 +1,22 @@
-.PHONY: build run clean deploy pdf
+.PHONY: build serve clean deploy pdf
 
 ## Default target: run the development server
-all: run
+all: serve
+
+## Help
+help:
+	adt help-make
 
 ## Generate documentation
 build:
-	sqla2uml -p -m app > src/dev/diagrams/db/model-detailed.puml
-	sqla2uml -m app > src/dev/diagrams/db/model-simple.puml
-	plantuml src/dev/diagrams/db/*.puml
-	make build
+	# Currently not working (need to fix sqla2uml)
+	# sqla2uml -p -m app > src/dev/diagrams/db/model-detailed.puml
+	# sqla2uml -m app > src/dev/diagrams/db/model-simple.puml
+	# plantuml src/dev/diagrams/db/*.puml
+	mkdocs build
 
 ## Run the development server
-run:
+serve:
 	mkdocs serve
 
 ## Deploy the documentation to the server
