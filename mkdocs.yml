@@ -1,4 +1,4 @@
-site_name: AIpress24 doc
+site_name: Aipress24 doc
 
 docs_dir: src
 
@@ -61,43 +61,43 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks
-  - with-pdf:
-      author: Stefane Fermigier / Erick Haensen / ...
-      copyright: © 2022-2024 Agence TCA (user doc) & Abilian (tech doc)
-      cover: true
-      back_cover: false
-      cover_title: AIpress24
-      cover_subtitle: La platforme du journalisme 3.0
-      enabled_if_env: ENABLE_PDF_EXPORT
-
-      #    custom_template_path: TEMPLATES PATH
-      #
-      #toc_title: TOC TITLE TEXT
-      #heading_shift: false
-      #toc_level: 3
-      #ordered_chapter_level: 2
-      #excludes_children:
-      #    - 'release-notes/:upgrading'
-      #    - 'release-notes/:changelog'
-      #
-      #exclude_pages:
-      #    - 'bugs/'
-      #    - 'appendix/contribute/'
-      #convert_iframe:
-      #    - src: IFRAME SRC
-      #      img: POSTER IMAGE URL
-      #      text: ALTERNATE TEXT
-      #    - src: ...
-      #two_columns_level: 3
-      #
-      #render_js: true
-      #headless_chrome_path: headless-chromium
-      #
-      #output_path: any-place/document.pdf
-      #
-      #debug_html: true
-      #show_anchors: true
-      #verbose: true
+#  - with-pdf:
+#      author: Stefane Fermigier / Erick Haensen / ...
+#      copyright: © 2022-2024 Agence TCA (user doc) & Abilian (tech doc)
+#      cover: true
+#      back_cover: false
+#      cover_title: AIpress24
+#      cover_subtitle: La platforme du journalisme 3.0
+#      enabled_if_env: ENABLE_PDF_EXPORT
+#
+#      #    custom_template_path: TEMPLATES PATH
+#      #
+#      #toc_title: TOC TITLE TEXT
+#      #heading_shift: false
+#      #toc_level: 3
+#      #ordered_chapter_level: 2
+#      #excludes_children:
+#      #    - 'release-notes/:upgrading'
+#      #    - 'release-notes/:changelog'
+#      #
+#      #exclude_pages:
+#      #    - 'bugs/'
+#      #    - 'appendix/contribute/'
+#      #convert_iframe:
+#      #    - src: IFRAME SRC
+#      #      img: POSTER IMAGE URL
+#      #      text: ALTERNATE TEXT
+#      #    - src: ...
+#      #two_columns_level: 3
+#      #
+#      #render_js: true
+#      #headless_chrome_path: headless-chromium
+#      #
+#      #output_path: any-place/document.pdf
+#      #
+#      #debug_html: true
+#      #show_anchors: true
+#      #verbose: true
 #  - mkdocstrings:
 #      default_handler: python
 #      handlers:
@@ -115,9 +115,11 @@ nav:
   - Developers:
     - Intro: dev/index.md
     - Architecture: dev/architecture.md
+    - Modules: dev/modules.md
+    - Services: dev/services.md
     - Database: dev/database.md
-    - Open Source Librairies (back-end): dev/libraries.md
     - API (back-end): dev/api.md
+    - Open Source Librairies (back-end): dev/libraries.md
     - Front-End: dev/front-end.md
     - Misc. Notes: dev/notes.md
     - Dolibarr Integration: dev/dolibarr.md
