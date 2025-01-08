@@ -2,6 +2,14 @@
 
 The Aipress24 application is structured into modules, each responsible for a specific set of features or functionalities. This modular design promotes code organization, maintainability, and reusability. Modules are located in the `src/app/modules` directory.
 
+Each module integrating its own:
+
+- Data model (via the ORM), except for the common document model.
+- Pages/views (via Flask/Pagic)
+- Templates (via Jinja2)
+- UI components (if any)
+
+
 ## Naming Conventions
 
 *   Modules are named using lowercase with underscores (e.g., `swork`, `kyc`).

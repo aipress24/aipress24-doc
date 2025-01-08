@@ -1,3 +1,5 @@
+# Database
+
 In AIpress24, data is managed by the PostgreSQL relational database. An object-relational (ORM) layer is implemented using the SQLAlchemy framework in Python.
 
 ## Schema

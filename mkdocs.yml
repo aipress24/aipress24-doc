@@ -111,17 +111,17 @@ plugins:
 nav:
   - Home: index.md
   - Utilisateurs:
-    - Intro: user/index.md
+      - Intro: user/index.md
   - Developers:
-    - Intro: dev/index.md
-    - Architecture: dev/architecture.md
-    - Modules: dev/modules.md
-    - Services: dev/services.md
-    - Database: dev/database.md
-    - API (back-end): dev/api.md
-    - Open Source Librairies (back-end): dev/libraries.md
-    - Front-End: dev/front-end.md
-    - Misc. Notes: dev/notes.md
-    - Dolibarr Integration: dev/dolibarr.md
-    - Glossary: dev/glossary.md
-    - Tests: dev/tests.md
+      - Intro: dev/index.md
+      - Architecture: dev/architecture.md
+      - Modules: dev/modules.md
+      - Services: dev/services.md
+      - Database: dev/database.md
+      - API (back-end): dev/api.md
+      - Open Source Librairies: dev/libraries.md
+      - Front-End: dev/front-end.md
+      - Misc. Notes: dev/notes.md
+      - Dolibarr Integration: dev/dolibarr.md
+      - Glossary: dev/glossary.md
+      - Tests: dev/tests.md
