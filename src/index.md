@@ -1,5 +1,8 @@
 # Documentation du projet AIpress24
 
+!!!note
+    For the English version of this documentation, please refer to the [User Guide](../user/en/) and [Developer Guide](../dev/).
+
 ## A propos d'AIpress24
 
 AIpress24 est un projet, initié par l’agence [TCA](https://agencetca.info/) et réalisé techniquement par [Abilian](https://abilian.com/), de plateforme technologique originale, permettant de répondre aux besoins de la chaîne de valeur du journalisme.
@@ -41,6 +44,6 @@ En particulier, le produit vise à fluidifier les relations du journaliste avec 
 
 ## Consulter la documentation
 
-- [Documentation utilisateur](./user/)
+- [Documentation utilisateur](./user/fr/)
 
 - [Developer documentation](./dev/)

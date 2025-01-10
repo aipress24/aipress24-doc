@@ -1,6 +1,7 @@
-# Aipress24 developers documentation
+# Aipress24 Developers Documentation
 
-Note: Navigate using the navbar on the left-hand side of this page.
+!!!Note
+    Navigate using the navbar on the left-hand side of this page or using the "hanburger" icon on the top left corner of the page.
 
 **Welcome to the Aipress24 Developer Documentation**
 

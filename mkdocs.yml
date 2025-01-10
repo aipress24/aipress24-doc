@@ -46,6 +46,7 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - admonition
   - meta
   - footnotes
   - toc:
@@ -116,8 +117,9 @@ plugins:
 
 nav:
   - Home: index.md
-  - Utilisateurs:
-      - Intro: user/index.md
+  - Users:
+      - 🇫🇷 Guide Utilisateurs: user/fr/index.md
+      - 🇬🇧 User Guide: user/en/index.md
   - Developers:
       - Intro: dev/index.md
       - Architecture: dev/architecture.md

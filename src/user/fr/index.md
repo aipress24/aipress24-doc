@@ -1,4 +1,4 @@
-# Documentation utilisateur (TBD)
+# Documentation utilisateur
 
 Cette documentation vous guidera à travers les fonctionnalités d'Aipress24 et vous aidera à tirer le meilleur parti de la plateforme, que vous soyez journaliste, communicant, expert, ou que vous représentiez une entreprise.
 
