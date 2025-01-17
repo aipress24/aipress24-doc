@@ -1,7 +1,7 @@
 # Documentation du projet AIpress24
 
-!!!note
-    For the English version of this documentation, please refer to the [User Guide](../user/en/) and [Developer Guide](../dev/).
+!!!note "🇬🇧 English version"
+    For the 🇬🇧 English version of this documentation, please refer to the [User Guide](../user/en/) and [Developer Guide](../dev/).
 
 ## A propos d'AIpress24
 
