@@ -1,7 +1,7 @@
 [project]
 name = "aipress24-doc"
 version = "0.1.0"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "aipress24-flask",
     "mkdocs-material>=9.5.49",
