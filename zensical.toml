@@ -1,0 +1,91 @@
+# Zensical configuration — https://zensical.org/docs/
+# Converted from mkdocs.yml (Material for MkDocs).
+
+[project]
+site_name = "Aipress24 doc"
+docs_dir = "src"
+
+# Matomo analytics (was a Material theme override in overrides/partials/).
+extra_javascript = ["javascripts/matomo.js"]
+
+nav = [
+  { "Home" = "index.md" },
+  { "Guide utilisateur 🇫🇷" = [
+    { "Introduction" = "user/fr/index.md" },
+    { "Premiers pas" = "user/fr/premiers-pas.md" },
+    { "Les modules" = "user/fr/modules.md" },
+    { "Fonctionnalités spécifiques" = "user/fr/fonctionnalites.md" },
+    { "Aide et support" = "user/fr/aide.md" },
+  ] },
+  { "User guide 🇬🇧" = [
+    { "Introduction" = "user/en/index.md" },
+    { "Getting started" = "user/en/getting-started.md" },
+    { "The modules" = "user/en/modules.md" },
+    { "Specific features" = "user/en/features.md" },
+    { "Help and support" = "user/en/help.md" },
+  ] },
+  { "Developers" = [
+    { "Intro" = "dev/index.md" },
+    { "Architecture" = "dev/architecture.md" },
+    { "Modules" = "dev/modules.md" },
+    { "Services" = "dev/services.md" },
+    { "Database" = "dev/database.md" },
+    { "Tests" = "dev/tests.md" },
+    { "API (back-end)" = "dev/api.md" },
+    { "Open Source Librairies" = "dev/libraries.md" },
+    { "Front-End" = "dev/front-end.md" },
+    { "Misc. Notes" = "dev/notes.md" },
+    { "Dolibarr Integration" = "dev/dolibarr.md" },
+    { "Glossary" = "dev/glossary.md" },
+  ] },
+]
+
+[project.theme]
+language = "en"
+features = [
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.instant",
+]
+
+[project.theme.icon]
+logo = "material/book-open-page-variant"
+
+[project.theme.font]
+text = "Roboto"
+code = "Roboto Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "pink"
+accent = "pink"
+toggle.icon = "material/weather-night"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "pink"
+accent = "pink"
+toggle.icon = "material/weather-sunny"
+toggle.name = "Switch to light mode"
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.meta]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.smarty]
+[project.markdown_extensions.sane_lists]
+[project.markdown_extensions.nl2br]
+[project.markdown_extensions.fenced_code]
+[project.markdown_extensions.pymdownx.magiclink]
+[project.markdown_extensions.pymdownx.tasklist]
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
+[project.markdown_extensions.pymdownx.superfences]
