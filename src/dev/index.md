@@ -11,20 +11,25 @@ This documentation provides a comprehensive guide to the Aipress24 platform's in
 
 Aipress24 is a B2B digital platform designed to connect journalists, communication professionals, experts, and organizations. It fosters collaboration and information sharing within the media ecosystem. The platform offers a suite of tools and services, including:
 
-*   **NEWS:** A news portal featuring curated content from verified sources and press releases.
-*   **WORK:** A collaborative workspace for managing editorial projects.
-*   **EVENTS:** A comprehensive calendar of industry events.
-*   **MARKET:** A marketplace for editorial services, freelance missions, and job opportunities.
-*   **SOCIAL:** A professional social network for the media industry.
+*   **News:** A news portal featuring curated content from verified sources and press releases.
+*   **Social:** A professional social network for the media industry.
+*   **Work:** A workspace for editorial production, requests and sales.
+*   **Marketplace:** Assignments, projects, jobs, subscriptions and rights transfers.
+*   **Events:** A calendar of industry events.
+*   **Search:** Cross-platform search.
 
 ## Key Technologies
 
 Aipress24 is built using a modern technology stack, primarily leveraging:
 
-*   **Backend:** Python, Flask framework, SQLAlchemy ORM, PostgreSQL database.
-*   **Frontend:** Tailwind CSS, DaisyUI, HTMX, AlpineJS, Vite for asset bundling.
-*   **Payments:** PSP integration.
-*   **Other services:** Activity streams, email, image management, invoicing, moderation, PDF generation, and more.
+*   **Backend:** Python 3.11+, Flask, SQLAlchemy 2.0 with Advanced-Alchemy, PostgreSQL (SQLite for tests).
+*   **Frontend:** Tailwind CSS, DaisyUI, HTMX, AlpineJS, a custom PyWire component system, and Vite for asset bundling.
+*   **Background tasks:** Dramatiq with a Redis broker.
+*   **Auth:** Flask-Security-Too.
+*   **Search:** an embedded BM25 full-text index (`wesh`).
+*   **Payments:** Stripe (subscriptions and one-off purchases).
+*   **Packaging & tooling:** `uv` for dependencies; `ruff`, `ty` and `pyrefly` for linting and type checking.
+*   **Other services:** activity streams, email, image/media management, invoicing, moderation, PDF generation, reputation, notifications, and more.
 
 ## Documentation Structure
 
@@ -35,7 +40,7 @@ This documentation is organized into several key sections, accessible through th
 *   **[Modules](./modules/):** Understand the application's modular structure, with each module encompassing its own data model, views, templates, and UI components.
 *   **[Services](./services/):** Learn about the various services that underpin the application, such as activity streams, configuration, email, image management, and more.
 *   **[Front-End Architecture](./front-end/):** Get insights into the front-end development approach, utilizing Tailwind CSS, DaisyUI, HTMX, AlpineJS, and Vite for asset bundling.
-*   **[Dolibarr Integration](./dolibarr/):** Explore the integration with Dolibarr for managing clients, partners, and invoices.
+*   **[Financial integration](./financial/):** How payments, subscriptions and invoicing work, via Stripe.
 *   **[Testing](./tests/):** Familiarize yourself with the testing strategy, including unit, integration, and end-to-end tests.
 *   **[Open Source Libraries](./libraries/):** See a comprehensive list of the open-source libraries used in the project.
 *   **[Glossary](./glossary/):** Understand the terminology used within the application and documentation.

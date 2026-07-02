@@ -13,12 +13,14 @@ pages are generated, using a template language, by the server (a paradigm know a
 
 Additionally, two pieces of JavaScript are used to provide interactivity when useful or necessary:
 
-- [HTMX](https://htmx.org/), a small library that gives access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so one can build modern user interfaces with the simplicity and power of hypertext. HTMX allows an [Hypermedia-Driven Application]
+- [HTMX](https://htmx.org/), a small library that gives access to AJAX, CSS Transitions, WebSockets and Server Sent Events directly in HTML, using attributes, so one can build modern user interfaces with the simplicity and power of hypertext.
 
-- [AlpineJS](https://alpinejs.dev/): a rugged, minimal tool for composing behavior directly in your markup, that complement HTMX well.
+- [AlpineJS](https://alpinejs.dev/): a rugged, minimal tool for composing behavior directly in your markup, that complements HTMX well.
+
+On top of HTMX, the project ships a small **PyWire** component system (`app/flask/lib/pywire/`) inspired by Livewire: server-rendered, stateful UI components that update over AJAX. UI components are auto-discovered and registered by **flask-super** from each module's `components/` directory; partial re-rendering of Jinja2 templates uses **jinja2-fragments**.
 
 ## Assets bundling
 
 We're using the [Vite](https://vitejs.dev/) to bundle assets (CSS, JavaScript).
 
-Vite is integrated (mostly) transparently with the backend using the [Flask-Vite]() plugin we have developped during the project.
+Vite is integrated (mostly) transparently with the backend using the [Flask-Vite](https://github.com/abilian/flask-vite) plugin we developed during the project.

@@ -1,5 +1,8 @@
 # Libraries and Dependencies in Aipress24
 
+!!! note "Source of truth"
+    Dependencies are managed with **`uv`**; the authoritative, up-to-date list (with exact version constraints) lives in **`pyproject.toml`** and the pinned versions in **`uv.lock`**. The version numbers below are indicative and may lag behind the code — always check `pyproject.toml` first.
+
 ## Back-end
 
 ### High-Level Overview
@@ -84,7 +87,7 @@ The application also includes features for generating fake data, for testing or 
 
 11. **Full-Text Search:**
 
-    *   **typesense** (`^0.21`): Typesense search engine client.
+    *   **wesh** (`>=3.0`): embedded BM25 full-text search engine (the search index; replaced the earlier Typesense client).
     *   **beautifulsoup4** (`^4.12`):  HTML parsing library, used here to remove HTML tags from content before indexing.
 
 12. **Payments:**

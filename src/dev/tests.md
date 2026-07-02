@@ -2,6 +2,20 @@
 
 This document outlines the testing procedures for the Aipress24 project. We use a combination of unit, integration, and end-to-end tests to ensure code quality and reliability.
 
+## Test organisation (tiers)
+
+Python tests live under `tests/` and are split into three tiers, run in order and increasingly close to a real environment:
+
+- **`tests/a_unit`** — fast, isolated unit tests. The `db_session` fixture yields `None`: these tests do not touch a database.
+- **`tests/b_integration`** — integration tests running inside a **savepoint** (nested transaction) that is rolled back after each test, so they share a fast, always-clean database without committing.
+- **`tests/c_e2e`** — end-to-end tests using a **committing** Flask test client against a fresh (drop/create) in-memory database (the `fresh_db` / `logged_in_client` / `make_authenticated_client` fixtures). These exercise real request → commit → teardown behaviour.
+
+Tests must clean up after themselves: a tier must leave the database in the state the next tier expects.
+
+The suite runs against **both SQLite** (default, fast) and **PostgreSQL** — see `make test-sqlite` / `make test-postgres`.
+
+Browser-based end-to-end tests (Playwright) live under `e2e_playwright/` and run against a running server (see below).
+
 ## Prerequisites
 
 Before running tests, ensure you have installed the necessary dependencies, including testing tools, as described in the [Getting Started / Installation](https://github.com/aipress24/aipress24#getting-started--installation) section of the README. This typically involves running:
@@ -122,21 +136,13 @@ Running `nox` without the `-s` flag will execute all sessions marked with a star
 
 ## Continuous Integration
 
-Aipress24 uses SourceHut builds for Continuous Integration (CI). Every push to the repository
+CI runs primarily on **GitHub Actions** (`.github/workflows/`):
 
-- The CI pipeline ensures that code changes are automatically tested for compatibility with Python 3.12, linting rules, and basic functionality using SQLite (currently, tests with PostgreSQL are not yet implemented in the CI pipeline).
+- `ci.yml` / `tests.yml` — run the test suite and checks on every push / pull request.
+- `lint.yml` — runs the lint and static-analysis gates (`ruff`, type checkers, import-linting…).
+- `fly-deploy.yml` — deploys the application to **Fly.io**.
 
-- The use of uv and nox in the CI environment mirrors the recommended local development and testing workflow.
-
-See the configurations:
-
-- https://github.com/aipress24/aipress24/tree/main/.builds
-
-And the build status (currently on the `~sfermigier` paying account).
-
-- https://builds.sr.ht/~sfermigier/aipress24
-
-Note: the SourceHut builds are generated from a mirror of the main repository (on GitHub), which is updated automatically via a cron job
+Historically, **SourceHut** builds (`.builds/`) were also used, generated from a GitHub mirror. The use of `uv` and `nox` in CI mirrors the recommended local development and testing workflow.
 
 ## Notes
 

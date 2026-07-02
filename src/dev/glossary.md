@@ -2,19 +2,20 @@
 
 ## Main Tabs vs. Code Modules
 
-*   **`wip` (Work):**  "Work in Progress" module, likely for internal tools, content creation, and workflows related to content production and management. Code module: `wip`.
-*   **`wire` (News):** Module for viewing and managing news feeds, articles, and other timely information. Code module: `wire`.
-*   **Events:** Module for managing and displaying events (conferences, webinars, etc.). Code module: `events`.
-*   **Market:** Module for the marketplace, where users can buy, sell, and find services and content. Code module: `biz`.
-*   **Social:** Module for social networking features, user profiles, groups, and interactions. Code module: `swork`.
-*   **Admin:** Module for administrative tasks, user management, system configuration, etc. Code module: `admin`.
-*   **Preferences:** Module for user preferences management. Code module: `preferences`.
-*   **Public:** Module for publicly accessible pages (homepage, pricing, static pages). Code module: `public`.
-*   **Search:** Module for search functionality. Code module: `search`.
-*   **Dashboard:** Module providing a dashboard overview (likely includes metrics and queue information). Potentially includes user-specific dashboards as well. Code module: `dashboard`.
-*   **Auth:** Modules for user authentication and authorization, potentially including OAuth integration. Code modules: `iam`, `oauth`.
-*   **KYC:** "Know Your Customer" module, handling user verification, profile information, and compliance. Code module: `kyc`.
-*   **API:** Module defining REST API endpoints. Code module: `api`.
+*   **News → `wire`:** the news feed — articles and press releases.
+*   **Social → `swork`:** the professional social network — profiles, groups, follows.
+*   **Work → `wip`:** "Work in Progress" — the editorial production workspace (Newsroom, Com'room, Event'room…).
+*   **Marketplace → `biz`:** assignments, projects, jobs, products and subscriptions.
+*   **Events → `events`:** the public events feed and calendar.
+*   **Search → `search`:** cross-platform full-text search.
+*   **Business Wall → `bw`:** organisation activation and management.
+*   **Admin → `admin`:** back-office administration.
+*   **Preferences → `preferences`:** account settings.
+*   **Public → `public`:** public pages (home, health check, login/logout).
+*   **KYC → `kyc`:** registration / profile qualification.
+*   **API → `api`:** internal HTTP API for HTMX/Trix interactions.
+
+Authentication and authorisation are handled by **Flask-Security-Too** (there is no separate `iam`/`oauth` module in the current codebase).
 
 ## Article Metadata
 
@@ -43,14 +44,16 @@
 
 ## Business Wall Types
 
-*   **Press Agency:** `BWTypeEnum.AGENCY`
-*   **Media:** `BWTypeEnum.MEDIA`
-*   **Corporate:** `BWTypeEnum.CORPORATE`
-*   **Press Union:** `BWTypeEnum.PRESSUNION`
-*   **Communication:** `BWTypeEnum.COM`
-*   **Organisation:** `BWTypeEnum.ORGANISATION`
-*   **Transformer:** `BWTypeEnum.TRANSFORMER`
-*   **Academic:** `BWTypeEnum.ACADEMICS`
+The Business Wall type is `BWType` (`bw_type` on the model). Current values:
+
+*   **Media:** `media` — recognised news outlets (free).
+*   **News Agency:** `news_agency` — CPPAP-approved press agencies (free).
+*   **Academics:** `academics` — research / higher education (free).
+*   **PR:** `pr` — PR agencies and consultants (paid, priced per number of clients).
+*   **Leaders & Experts:** `leaders_experts` — companies, experts, executives (paid, priced by headcount).
+*   **Transformers:** `transformers` — innovation players (paid, priced by headcount).
+
+Deprecated (still in the database but no longer offered to new subscribers): `micro`, `corporate_media`, `union`.
 
 ## User Roles
 

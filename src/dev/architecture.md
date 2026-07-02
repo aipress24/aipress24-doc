@@ -26,9 +26,9 @@ See [Services](./services/).
 
 ### Core Framework Features (Flask)
 
-1.  **Routing:** Uses Blueprints (`app/modules/*/__init__.py`) to organize routes. Decorators (`@route`, `@get`, `@post` in `app/modules/admin/__init__.py`) and potentially standard Flask `@blueprint.route` are used. A custom `Page` abstraction (`app/flask/lib/pages/`) also handles routing by mapping Page classes to URL paths. Flask-Classful is used for some CBVs (`app/modules/wip/crud/cbvs/`).
-2.  **Request/Response Handling: Implicitly uses Flask's `request` and `Response` objects. Handles GET/POST requests in the `Page` classes and view functions. Uses `redirect`, `jsonify`, `send_file`.
-3.  **Templating (Jinja2): Explicitly uses Jinja2 via Flask's default integration.
+1.  **Routing:** Uses Blueprints (`app/modules/*/__init__.py`) to organise routes, combining standard Flask `@blueprint.route` with **flask-classful** class-based views for CRUD (`app/modules/wip/crud/cbvs/`). Navigation entries are declared with `configure_nav(...)`.
+2.  **Request/Response Handling:** Uses Flask's `request` and `Response` objects, handling GET/POST in view functions and CBVs. Uses `redirect`, `jsonify`, `send_file`.
+3.  **Templating (Jinja2):** Uses Jinja2 via Flask's default integration.
     *   Template Loading: Loads templates from `app/templates`.
     *   Context Processors: Injects variables globally into templates (`app/flask/hooks.py`, `app/flask/jinja.py`).
     *   Custom Filters: Defines custom template filters (`app/ui/datetime_filter.py`, registered in `app/flask/main.py`).
@@ -80,7 +80,13 @@ See [Services](./services/).
 20. **Service Layer / Dependency Injection:** Uses `svcs` for registering and accessing services (`app/flask/services.py`, `app/services/`). Promotes decoupling.
 21. **Repository Pattern:** Data access is often abstracted through Repository classes (`app/models/repositories.py`, `app/services/repositories/`).
 22. **Model Mixins:** Reusable model functionalities (like ID generation, timestamps, ownership, address fields) are implemented using mixins (`app/models/mixins.py`).
-23. **Custom View Abstraction (`Page`):** A custom `Page` class provides a structured way to define views/controllers, handling routing, context, templates, and lifecycle methods (`app/flask/lib/pages/`).
-24. **ASGI/WSGI Compatibility:** The main server uses ASGI (Starlette/Granian) and mounts the WSGI Flask application using `asgiref.wsgi.WsgiToAsgi`.
-25. **Application Server:** Uses Granian as the ASGI server (`adminapp/__main__.py`, `server/main.py`).
-26. **Search Index Integration:** Explicit commands and backend code for interacting with Typesense (`app/modules/search/`).
+23. **Class-Based Views:** CRUD-heavy modules use **flask-classful** class-based views (`app/modules/wip/crud/cbvs/`) on top of a shared table/form/renderer layer, rather than plain function views. (An older custom `Page` abstraction has been removed.)
+24. **ASGI/WSGI Compatibility:** The admin app (`adminapp`, Starlette/Granian) is ASGI; the main Flask app is WSGI and can be mounted under ASGI via `asgiref.wsgi.WsgiToAsgi`.
+25. **Application Server:** The main app runs under **gunicorn** (WSGI); the Starlette-based `adminapp` runs under **Granian** (ASGI). Development processes are orchestrated with **honcho** (`Procfile-dev`).
+26. **Search Index Integration:** Full-text search is backed by an embedded **wesh** BM25 index (a single index keyed on the database URL), managed via the `flask search` CLI (`app/modules/search/`). *(Note: earlier revisions of this doc referenced Typesense.)*
+
+### Tooling
+
+27. **Package Management:** **`uv`** manages dependencies and virtual environments (the project is migrating away from Poetry). Build backend: `pdm-backend`.
+28. **Quality Gates:** **`ruff`** (lint + format), the **`ty`** type checker (primary) and **`pyrefly`** (secondary), plus import-linting, `bandit` and `vulture`, run via `make lint`.
+29. **Continuous Integration:** Runs on **GitHub Actions** (`.github/workflows/`: `ci.yml`, `tests.yml`, `lint.yml`) and, historically, SourceHut builds (`.builds/`). Deployment to Fly.io is wired via `fly-deploy.yml`.

@@ -2,74 +2,52 @@
 
 The Aipress24 application is structured into modules, each responsible for a specific set of features or functionalities. This modular design promotes code organization, maintainability, and reusability. Modules are located in the `src/app/modules` directory.
 
-Each module integrating its own:
+Each module typically integrates its own:
 
-- Data model (via the ORM), except for the common document model.
-- Pages/views (via Flask/Pagic)
-- Templates (via Jinja2)
-- UI components (if any)
+- Data model (SQLAlchemy 2.0 models), except for the shared content model.
+- Views — Flask **blueprints** plus, for CRUD-heavy modules, **flask-classful** class-based views (`app/modules/wip/crud/cbvs/`).
+- Templates (Jinja2, partial rendering via jinja2-fragments).
+- UI components (PyWire / flask-super, auto-discovered from `components/`).
 
+Modules are auto-discovered and registered as Flask blueprints, and their navigation entry is declared via `configure_nav(...)` in the module's `__init__.py`.
 
 ## Naming Conventions
 
-*   Modules are named using lowercase with underscores (e.g., `swork`, `kyc`).
-*   Historically, some modules have been renamed in the UI but not in the code (e.g., "Biz" for "Market", "Swork" for "Social", "Wire" for "News"). This is noted in the code comments.
+*   Modules are named in lowercase with underscores (e.g. `swork`, `kyc`).
+*   The code names differ from the UI portal names. The mapping is:
+
+| Code module | UI portal |
+|---|---|
+| `wire` | News |
+| `swork` | Social |
+| `wip` | Work |
+| `biz` | Marketplace |
+| `events` | Events (Événements) |
+| `search` | Search (Rechercher) |
+| `bw` | Business Wall |
 
 ## Key Modules
 
 Here's a description of some of the most important modules:
 
-*   **`admin`:** Provides administrative functionalities, including user management, organization management, system information, and data export.
-    *   Defines admin pages using the `Page` class, organized under `pages/`.
-    *   Uses tables, implemented with `Table` and `DataSource`, to display data.
-    *   Includes routes for user validation, showing user details, and exporting data.
-    *   Handles invitations and organization email management.
-*   **`api`:** Exposes a RESTful API for interacting with the platform's data and services.
-    *   Provides endpoints for retrieving blobs, handling likes, and potentially other operations.
-    *   Includes authentication checks for API requests.
-*   **`biz`:** Implements the marketplace ("Market") functionality, where users can buy and sell editorial products, services, and subscriptions.
-    *   Defines models for marketplace content and purchases.
-    *   Includes components like `BizCard` and `BizTabs` for UI representation.
-    *   Features pages for browsing the marketplace, viewing purchases, and managing items.
-*   **`common`:** Contains components, utilities, and functionalities shared across multiple modules.
-*   **`dashboard`:** (Possibly a placeholder or intended for future use) Aims to provide a dashboard for monitoring the application's queue system.
-*   **`debug`:** Provides debugging tools and information, accessible only in non-production environments.
-*   **`events`:** Manages events, including conferences, webinars, and training sessions.
-    *   Allows users to view event details, register for events, and manage participation.
-    *   Includes models for events and participation.
-    *   Defines components like `EventCard` and `EventList` for UI display.
-*   **`iam`:** (Currently not actively used) Intended for identity and access management, potentially using OAuth2.
-*   **`kyc`:** Handles user registration, profile management, and "Know Your Customer" (KYC) processes.
-    *   Implements a dynamic form system based on a survey model loaded from an Excel file.
-    *   Includes custom form fields, validators, and renderers.
-    *   Manages temporary blob storage for user uploads.
-    *   Defines functions for community-to-role mapping and organization utilities.
-*   **`oauth`:** (Currently not actively used) Intended for OAuth2-based authentication.
-*   **`preferences`:** Allows users to manage their preferences, including profile visibility, contact options, and interests.
-    *   Defines pages for editing user profiles and managing organization invitations.
-*   **`public`:** Handles public-facing pages and functionalities, such as the home page, health checks, sitemap, and static asset serving.
-    *   Includes views for user login/logout and debug features in non-production environments.
-*   **`search`:** Provides search functionality across the platform.
-    *   Utilizes a search backend (Typesense) for indexing and searching content.
-    *   Defines search handlers and collections.
-    *   Includes a `SearchPage` for user interaction.
-*   **`security`:** (Potentially deprecated or under development) Intended for managing security-related aspects, potentially including roles and permissions.
-*   **`swork`:** Implements the social network ("Social") features, enabling users to connect, follow each other, and share content.
-    *   Defines models for posts, groups, and user relationships.
-    *   Includes components for displaying member lists, organization lists, and group information.
-    *   Features pages for user profiles, organization profiles, group management, and member directories.
-*   **`wallet`:** (Likely intended for future use) Aims to manage user wallets and payments.
-*   **`wip`:** Provides a back-office interface ("Work") for managing content, including articles, avis d'enquête, and other editorial products.
-    *   Defines forms for creating and editing content, utilizing a form generation system.
-    *   Includes models for newsroom entities like `Article`, `AvisEnquete`, `Commande`, `Sujet`, and `JustifPublication`.
-    *   Features pages for managing content lists, details, creation, and updates.
-    *   Implements a dropdown menu component and table components for UI display.
-    *   Contains a section on data for clients (data4clients)
-*   **`wire`:** Implements the news feed ("News") functionality, displaying articles and other content to users.
-    *   Defines models for article posts and their status.
-    *   Includes components like `PostCard` and `Carousel` for UI representation.
-    *   Features pages for displaying the news feed and individual posts.
-    *   Handles actions like toggling likes and adding comments.
+*   **`wire` (News):** The news feed — articles and press releases, with tabs, filters, comments, likes, and the reader-side monetisation (paywall, gifted consultations, proofs, rights transfers). Components like `PostCard` and `Carousel`.
+*   **`swork` (Social):** The social network — the Wall (short posts), members directory, organisation pages, groups, and the follow graph. Models for posts, groups and relationships; the `members_list` component and its filters.
+*   **`wip` (Work):** The editorial workspace — Newsroom (Articles, Sujets, Commandes, Avis d'enquête), Com'room, Event'room, Opportunités, sales/purchases and invoicing. CRUD is built on flask-classful CBVs (`crud/cbvs/`) with a shared table/form layer.
+*   **`biz` (Marketplace):** Assignments, projects and the job board — deposit forms, applications, and application review; plus the editorial-products and subscriptions tabs. Components `BizCard` and `BizTabs`.
+*   **`bw` (Business Wall):** Organisation activation and management — activation funnel, roles (Owner, internal/external managers, PR managers), partnerships, missions/permissions, rights-transfer policy, and Stripe subscription products.
+*   **`events` (Events):** The public events feed and calendar view, filters, event detail, and journalist accreditation. (Events are authored in the `wip` Event'room.)
+*   **`search` (Search):** Cross-platform search over articles, press releases, events, marketplace offers, members and organisations, backed by an embedded **wesh** BM25 index (rebuildable via `flask search rebuild`).
+*   **`kyc`:** Registration / "Know Your Customer" — a dynamic questionnaire generated from a survey model (spreadsheet), custom fields, validators and renderers, community/profile mapping, and admin validation of profiles.
+*   **`admin`:** Back-office — user validation, organisation management, data export (ODS), marketplace moderation, and system tools.
+*   **`api`:** A small internal HTTP API for HTMX/Trix interactions (likes, editor blob uploads). See [API](./api/).
+*   **`stripe`:** Stripe integration — checkout, webhooks (`checkout.session.completed`, invoices) and subscription lifecycle.
+*   **`notifications`:** The in-app "bell" — notification model, service and dropdown UI.
+*   **`media`:** Content-addressed file serving (`/media/<sha256>`) from the storage backend, behind authentication.
+*   **`preferences`:** Account settings — profile visibility, contact options, interests, password/email, and organisation invitations.
+*   **`public`:** Public-facing pages — home, health check, sitemap, static assets, login/logout.
+*   **`common`:** Shared components and utilities (e.g. `PostCard`, page header).
+*   **`dashboard`:** A (largely inactive) module related to background-queue monitoring — not a user dashboard.
+*   **`security`, `debug`:** Security helpers and development/debug tooling (the latter only in non-production).
 
 ## Module Structure
 
@@ -77,7 +55,7 @@ Each module typically contains the following components, with some variations:
 
 *   **`__init__.py`:**  Initializes the module and defines the Flask Blueprint.
 *   **`models.py`:** Defines the SQLAlchemy database models specific to the module.
-*   **`views.py` or `pages/`:** Contains the Flask views or page definitions that handle user interface logic and interactions.
+*   **`views/` (or `views.py`):** Contains the Flask views / class-based views handling request logic and rendering.
 *   **`forms.py`:** (If applicable) Defines WTForms used for data input and validation.
 *   **`components/`:** (If applicable) Contains PyWire components for reusable UI elements.
 *   **`services.py`:** (If applicable) Contains business logic and services related to the module.
