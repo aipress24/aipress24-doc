@@ -1,0 +1,18 @@
+# Aipress24 Documentation Site
+# Deploy with: hop3 --context prod deploy
+
+[metadata]
+id = "aipress24-docs"
+title = "Aipress24 Documentation"
+description = "Official documentation for Aipress24"
+
+[build]
+toolchain = "static"
+
+ignore = ["src"]
+
+# [env]
+# HOST_NAME = "aipress24.hop3.abilian.com"
+
+[domains]
+list = ["aipress24-doc.hop3.abilian.com", "doc.aipress24.com"]
