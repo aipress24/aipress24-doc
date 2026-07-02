@@ -4,7 +4,7 @@ This document outlines the testing procedures for the Aipress24 project. We use 
 
 ## Prerequisites
 
-Before running tests, ensure you have installed the necessary dependencies, including testing tools, as described in the [Getting Started / Installation](#getting-started--installation) section of the README. This typically involves running:
+Before running tests, ensure you have installed the necessary dependencies, including testing tools, as described in the [Getting Started / Installation](https://github.com/aipress24/aipress24#getting-started--installation) section of the README. This typically involves running:
 
 ```bash
 make develop
