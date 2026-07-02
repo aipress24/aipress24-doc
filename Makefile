@@ -1,7 +1,7 @@
-.PHONY: build serve clean deploy pdf
+.PHONY: build serve clean deploy
 
 ## Default target: run the development server
-all: serve
+all: build
 
 ## Help
 help:
@@ -13,11 +13,11 @@ build:
 	# sqla2uml -p -m app > src/dev/diagrams/db/model-detailed.puml
 	# sqla2uml -m app > src/dev/diagrams/db/model-simple.puml
 	# plantuml src/dev/diagrams/db/*.puml
-	mkdocs build
+	zensical build
 
 ## Run the development server
 serve:
-	mkdocs serve
+	zensical serve
 
 ## Deploy the documentation to the server
 deploy: build
@@ -29,7 +29,3 @@ clean:
 
 ## Alias for clean
 tidy: clean
-
-## Generate PDF (not working yet because of some dependency issues)
-pdf:
-	ENABLE_PDF_EXPORT=1 mkdocs build
