@@ -136,13 +136,13 @@ Running `nox` without the `-s` flag will execute all sessions marked with a star
 
 ## Continuous Integration
 
-CI runs primarily on **GitHub Actions** (`.github/workflows/`):
+CI runs primarily on **SourceHut** builds (`.builds/`), under Ubuntu 24.04, 26.06 and Rocky Linux.
 
-- `ci.yml` / `tests.yml` — run the test suite and checks on every push / pull request.
-- `lint.yml` — runs the lint and static-analysis gates (`ruff`, type checkers, import-linting…).
-- `fly-deploy.yml` — deploys the application to **Fly.io**.
+The use of `uv` and `nox` in CI mirrors the recommended local development and testing workflow.
 
-Historically, **SourceHut** builds (`.builds/`) were also used, generated from a GitHub mirror. The use of `uv` and `nox` in CI mirrors the recommended local development and testing workflow.
+## Cloud deployment
+
+`hop3 deploy` deploys the application on a [Hop3](https://hop3.cloud/) server. See `hop3.toml`.
 
 ## Notes
 
