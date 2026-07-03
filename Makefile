@@ -36,7 +36,7 @@ serve:
 
 ## Deploy the documentation to the server
 deploy: build
-	rsync -e ssh -avz site/ doc.aipress24.com:doc.aipress24.com/
+	hop3 deploy --context prod -y
 
 ## Clean the build
 clean:
