@@ -12,6 +12,8 @@ Le formulaire comporte un **Titre**, un **Brief**, les métadonnées habituelles
 
 ### 2. Cibler les contacts
 
+![L'étape de ciblage des experts](../../screenshots/avis-ciblage.png)
+
 L'étape **Cibler les contacts** vous aide à constituer la liste des experts à solliciter. La plateforme pré-sélectionne un vivier d'experts actifs dont les secteurs recoupent ceux de l'enquête, que vous affinez avec de nombreux filtres, regroupés en quatre familles :
 
 - **Secteurs d'activité et types d'organisation** — secteurs détaillés, types d'organisation, type d'entreprise de presse & médias, taille de l'organisation.

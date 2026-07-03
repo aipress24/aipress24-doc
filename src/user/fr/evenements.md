@@ -1,5 +1,7 @@
 # Le portail Événements
 
+![Le portail Événements](../../screenshots/events.png)
+
 **Événements** est l'agenda de l'actualité : conférences de presse, salons, colloques, webinaires, événements culturels, concours, formations… Le portail est en lecture ; la **création** des événements se fait dans l'espace **Event'room** du portail [Work](work.md).
 
 ## Consulter les événements
@@ -18,6 +20,8 @@ Chaque carte d'événement affiche ses horaires, son titre, un résumé, son typ
 - **Votre agenda** : la liste des événements auxquels vous êtes **accrédité**, triés par proximité dans le temps. Tant que vous n'êtes accrédité à aucun événement, un message vous l'indique.
 
 ## La page d'un événement
+
+![La page d'un événement](../../screenshots/event-detail.png)
 
 La page de détail présente :
 

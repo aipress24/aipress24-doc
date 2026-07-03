@@ -4,6 +4,8 @@ Aipress24 permet de valoriser les contenus journalistiques. Cette page regroupe 
 
 ## Les droits proposés sur un article
 
+![La section Acquisition sur la page d'un article](../../screenshots/article-view.png)
+
 Sur la page d'un article payant, une section **Acquisition** propose jusqu'à quatre produits. Chaque achat ouvre une fenêtre de confirmation indiquant les montants **HT / TVA / TTC**, puis un paiement en ligne sécurisé par carte bancaire.
 
 ### Droit de consultation
@@ -36,6 +38,8 @@ Un média définit **à qui il accepte de céder les droits** de ses contenus vi
 Cette politique est **figée sur chaque contenu au moment de sa publication** : elle ne s'applique donc pas rétroactivement aux articles déjà publiés.
 
 ## Suivre ses ventes et ses achats
+
+![Vos factures dans l'espace Facturation](../../screenshots/billing.png)
 
 Depuis le portail [Work](work.md) :
 

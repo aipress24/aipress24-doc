@@ -52,6 +52,8 @@ Plusieurs rôles peuvent être attribués au sein d'un Business Wall :
 
 ## Gérer le Business Wall
 
+![Le tableau de bord de gestion d'un Business Wall](../../screenshots/business-wall.png)
+
 Le tableau de bord (« Gérer le Business Wall ») regroupe les fonctions de gestion, réservées aux managers :
 
 - **Modifier les données de base** — nom, effectifs (qui déterminent le palier tarifaire), missions.

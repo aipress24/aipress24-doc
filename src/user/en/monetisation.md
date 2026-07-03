@@ -4,6 +4,8 @@ Aipress24 lets you monetise journalistic content. This page gathers the commerci
 
 ## Rights offered on an article
 
+![The Acquisition section on an article page](../../screenshots/article-view.png)
+
 On a paid article's page, an **"Acquisition"** section offers up to four products. Each purchase opens a confirmation window showing the **net / VAT / gross** amounts, then a secure online card payment.
 
 ### Consultation right
@@ -36,6 +38,8 @@ A media outlet defines **who it agrees to transfer rights to** via the **"Modali
 This policy is **frozen onto each piece of content at the moment of its publication**: it therefore does not apply retroactively to already-published articles.
 
 ## Tracking your sales and purchases
+
+![Your invoices in the Invoicing area](../../screenshots/billing.png)
 
 From the [Work](work.md) portal:
 

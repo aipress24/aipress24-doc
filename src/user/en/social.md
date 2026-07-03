@@ -1,5 +1,7 @@
 # The Social portal
 
+![The Social Wall](../../screenshots/social-wall.png)
+
 **Social** is Aipress24's professional network. It lets you post, follow members and organisations, build up your contacts, and make your profile visible. It is organised around three spaces: the **Wall**, the **Members** directory and the **Organisations** directory.
 
 ## The Wall (activity feed)
@@ -11,6 +13,8 @@ The Wall is your social home page.
 - Each message can be liked.
 
 ## The members directory
+
+![The members directory and its filters](../../screenshots/members-directory.png)
 
 The directory lists every member of the platform, in alphabetical order. A counter shows the number of members matching your criteria.
 
@@ -24,6 +28,8 @@ The directory lists every member of the platform, in alphabetical order. A count
 These filters draw on the KYC qualification of profiles: the more complete your profile, the easier you are to find.
 
 ## A member's card
+
+![A member's card](../../screenshots/member-profile.png)
 
 A member's card (opened by clicking their name) shows a cover image, their photo, their name (with a **karma** medal reflecting their reputation), their role and organisation, and a **"Suivre" / "Ne plus suivre"** (Follow / Unfollow) button.
 

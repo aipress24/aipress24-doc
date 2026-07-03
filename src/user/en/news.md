@@ -1,5 +1,7 @@
 # The News portal
 
+![The News feed](../../screenshots/news-feed.png)
+
 **News** is the reading portal for current affairs: articles, investigations, reports and press releases from professional sources (press agencies, recognised media, organisations). Accessing News requires you to be logged in.
 
 ## Tabs
@@ -45,6 +47,8 @@ In the feed, each article is shown as a card: heading, date, cover image, title,
 The "views" counter (eye icon) reflects the number of **paid consultations** of the article — an indicator of the genuine interest in the content.
 
 ## The article page
+
+![An article page and its metadata column](../../screenshots/article-view.png)
 
 The detail page shows the title, author, publication date (and last edit), an image carousel and the content.
 

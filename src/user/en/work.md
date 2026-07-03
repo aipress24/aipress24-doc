@@ -1,5 +1,7 @@
 # The Work portal
 
+![The Newsroom in the Work portal](../../screenshots/newsroom.png)
+
 **Work** (Work In Progress) is your professional workspace: this is where you produce content, manage requests and track your activity. The left-hand menu gives access to several spaces, some of which depend on your profile.
 
 | Space | For whom | Role |
@@ -27,6 +29,8 @@ The **Newsroom** (journalists' editorial space) gathers four content types, show
 Each type has a list (table) and a create/edit form. Content shares common metadata: **Genre**, **Rubrique** (Heading), **Thématique** (Theme), **Secteur** (Sector), a **media** (or target media) and a location (**country**, **postcode & city**).
 
 ### Articles
+
+![The article creation form](../../screenshots/article-new.png)
 
 This is the heart of journalistic production.
 
@@ -61,6 +65,8 @@ An editor-in-chief is a user whose profile is a newsroom leadership role, or who
 
 ## Com'room
 
+![The Com'room and its press releases](../../screenshots/comroom.png)
+
 The **Com'room** (editorial space for press relations) is aimed at communicators, experts, academics and transformers. It lets you write and publish **press releases** (and, for PR agencies, pitch topics).
 
 A press release's form includes: **title**, **standfirst**, **main content**, the metadata, and key dates including an **embargo date** (planned release) and an **effective publication date**.
@@ -73,6 +79,8 @@ A press release's form includes: **title**, **standfirst**, **main content**, th
 The **Event'room** lets you create and manage your **events**. How it works (form, images, publishing rules) is described in [Events](events.md).
 
 ## Opportunities
+
+![The Opportunities space](../../screenshots/opportunities.png)
 
 The **Opportunités** space ("Mes opportunités") centralises all the requests that concern you, split into tabs:
 

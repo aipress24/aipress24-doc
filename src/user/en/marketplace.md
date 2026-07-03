@@ -1,5 +1,7 @@
 # The Marketplace portal
 
+![The Marketplace portal and its tabs](../../screenshots/marketplace.png)
+
 **Marketplace** is Aipress24's marketplace. Here you publish and respond to **assignments**, **projects** and **job offers**. The portal also has a **Subscriptions** tab (which leads to activating a [Business Wall](business-wall.md)) and a **©** tab dedicated to editorial-rights transfers (see [Monetisation & rights](monetisation.md)).
 
 This page focuses on the three offer boards: Assignments (Missions), Projects (Projets), Job Board. They work the same way: post an offer, browse, apply, then manage applications.
@@ -9,6 +11,8 @@ This page focuses on the three offer boards: Assignments (Missions), Projects (P
 An **assignment** is a one-off work proposal (freelance work, copywriting, communication, innovation…).
 
 ### Posting an assignment
+
+![The assignment posting form](../../screenshots/marketplace-mission-new.png)
 
 From the **Missions** tab, click **"+ Publier une mission"** (Post an assignment). The form includes:
 

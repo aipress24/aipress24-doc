@@ -19,27 +19,27 @@ En particulier, le produit vise à fluidifier les relations du journaliste avec 
 
 [^1]: Neto, B. M., Ishikawa, E., Ghinea, G., & Grønli, T. M. (2019, January). Newsroom 3.0: managing technological and media convergence in contemporary newsrooms. In Proceedings of the 52nd Hawaii International Conference on System Sciences.
 
-## Aperçu de l'application (prototype)
+## Aperçu de l'application
 
-### Page NEWS (fils d'actu)
+### News (fils d'actu)
 
-![Home](screenshots/home.png)
+![Le portail News](screenshots/news-feed.png)
 
-### Page WORK (back-office éditorial)
+### Work (back-office éditorial)
 
-![WIP](screenshots/wip.png)
+![La Newsroom du portail Work](screenshots/newsroom.png)
 
-### Page EVENTS (agenda événementiel)
+### Events (agenda événementiel)
 
-![Events](screenshots/events.png)
+![Le portail Événements](screenshots/events.png)
 
-### Page MARKET (marketplace de produits et de services éditoriaux)
+### Marketplace (produits et services éditoriaux)
 
-![BIZ](screenshots/biz.png)
+![Le portail Marketplace](screenshots/marketplace.png)
 
-### Page SOCIAL (réseau social professionnel pour l'écosystème de la presse)
+### Social (réseau social professionnel pour l'écosystème de la presse)
 
-![SWORK](screenshots/swork.png)
+![Le mur social](screenshots/social-wall.png)
 
 
 ## Consulter la documentation

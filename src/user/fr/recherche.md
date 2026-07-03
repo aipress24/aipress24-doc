@@ -1,5 +1,7 @@
 # Rechercher
 
+![Le portail Rechercher](../../screenshots/search.png)
+
 Le portail **Rechercher** offre une recherche transverse sur l'ensemble de la plateforme, depuis un point d'entrée unique.
 
 ## Lancer une recherche

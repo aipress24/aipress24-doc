@@ -1,5 +1,7 @@
 # Le portail Marketplace
 
+![Le portail Marketplace et ses onglets](../../screenshots/marketplace.png)
+
 **Marketplace** est la place de marché d'Aipress24. On y publie et on y répond à des **missions**, des **projets** et des **offres d'emploi**. Le portail comporte aussi un onglet **Abonnements** (qui renvoie à l'activation d'un [Business Wall](business-wall.md)) et un onglet **©** dédié à la cession de droits éditoriaux (voir [Monétisation & droits](monetisation.md)).
 
 Cette page se concentre sur les trois places d'offres : Missions, Projets, Job Board. Elles partagent le même fonctionnement : dépôt d'une offre, consultation, candidature, puis gestion des candidatures.
@@ -9,6 +11,8 @@ Cette page se concentre sur les trois places d'offres : Missions, Projets, Job B
 Une **mission** est une proposition de travail ponctuelle (pige, rédaction, communication, innovation…).
 
 ### Déposer une mission
+
+![Le formulaire de dépôt d'une mission](../../screenshots/marketplace-mission-new.png)
 
 Depuis l'onglet **Missions**, cliquez sur **+ Publier une mission**. Le formulaire comporte :
 

@@ -1,5 +1,7 @@
 # Your profile
 
+![The account preferences](../../screenshots/preferences.png)
+
 Your profile is your professional identity card on Aipress24. Its qualification (role, sectors, skills…) determines your visibility, your presence in the directory, and the relevance of matchmaking (enquiry notices, assignments, projects). A complete, up-to-date profile is therefore a major asset.
 
 ## Completing and editing your profile

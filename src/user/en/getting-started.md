@@ -42,6 +42,8 @@ Once your account is validated, log in with your email address and password. By 
 
 ## Finding your way around
 
+![The Aipress24 interface once logged in](../../screenshots/work-dashboard.png)
+
 - The **navigation bar** at the top of the screen gives access to the portals: **News**, **Social**, **Work**, **Marketplace**, **Events (Événements)**, **Search (Rechercher)**.
 - The **bell** icon shows your [notifications](notifications.md) (with an unread badge).
 - Your **name**, top right, opens your preferences and profile settings.

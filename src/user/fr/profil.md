@@ -1,5 +1,7 @@
 # Votre profil
 
+![Les préférences du compte](../../screenshots/preferences.png)
+
 Votre profil est votre carte d'identité professionnelle sur Aipress24. Sa qualification (fonction, secteurs, compétences…) détermine votre visibilité, votre présence dans l'annuaire et la pertinence des mises en relation (avis d'enquête, missions, projets). Un profil complet et à jour est donc un atout majeur.
 
 ## Compléter et modifier votre profil

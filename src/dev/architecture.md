@@ -2,17 +2,116 @@
 
 ## C4 Diagrams
 
+The following [C4](https://c4model.com/) diagrams describe the current
+architecture. They are rendered with Mermaid (source lives inline in this
+page). Earlier PlantUML renders under `diagrams/c4/` are kept for history but
+are superseded by the diagrams below.
+
 ### Context diagram (level 1)
 
-![Level 1](diagrams/c4/level1.png)
+Who uses Aipress24 and which external systems it depends on.
 
-### Container diagrams (level 2)
+```mermaid
+flowchart TB
+  guest["Guest / anonymous visitor"]
+  member["Registered member<br/>journalist · PR · expert · academic"]
+  staff["Aipress24 staff<br/>admin and moderation"]
 
-![Level 2](diagrams/c4/level2.png)
+  a24["Aipress24<br/>digital workspace for press and PR"]
 
-### Component diagrams (level 3)
+  stripe["Stripe<br/>payments · subscriptions · invoices"]
+  smtp["Email / SMTP<br/>transactional mail"]
+  sentry["Sentry<br/>error monitoring"]
+  s3[("S3-compatible object store<br/>images and documents")]
 
-![Level 3](diagrams/c4/level3.png)
+  guest -->|"browses public content (HTTPS)"| a24
+  member -->|"uses the platform (HTTPS)"| a24
+  staff -->|"administers (HTTPS)"| a24
+
+  a24 -->|"card payments and subscriptions (REST)"| stripe
+  a24 -->|"sends notifications"| smtp
+  a24 -->|"reports errors"| sentry
+  a24 -->|"stores and serves files"| s3
+  smtp -.->|"delivers email"| member
+```
+
+### Container diagram (level 2)
+
+The runtime pieces. Note there is **no Redis**: the Dramatiq job queue and the
+`wesh` full-text index both live in PostgreSQL.
+
+```mermaid
+flowchart TB
+  user["Member / staff<br/>web browser"]
+
+  subgraph a24["Aipress24 platform"]
+    web["Web app<br/>Flask · WSGI / gunicorn<br/>Jinja + HTMX + PyWire · Vite assets"]
+    admin["Admin app<br/>Starlette + SQLAdmin<br/>ASGI / Granian"]
+    worker["Background workers<br/>Dramatiq + scheduler"]
+    db[("PostgreSQL<br/>app data · Dramatiq queue · wesh search index")]
+  end
+
+  s3[("S3-compatible<br/>object store")]
+  stripe["Stripe"]
+  smtp["Email / SMTP"]
+  sentry["Sentry"]
+
+  user -->|HTTPS| web
+  user -->|HTTPS| admin
+  web -->|"reads / writes"| db
+  admin -->|"reads / writes"| db
+  worker -->|"reads / writes"| db
+  web -->|"enqueues jobs"| worker
+  web -->|files| s3
+  web -->|payments| stripe
+  worker -->|email| smtp
+  web -->|errors| sentry
+  worker -->|errors| sentry
+```
+
+### Component diagram (level 3)
+
+Inside the web app: feature modules (Flask blueprints) sit on top of shared
+cross-cutting layers.
+
+```mermaid
+flowchart TB
+  subgraph mods["Feature modules (Flask blueprints)"]
+    wire["wire<br/>News"]
+    swork["swork<br/>Social"]
+    wip["wip<br/>Work / Newsroom"]
+    biz["biz<br/>Marketplace"]
+    events["events"]
+    bw["bw<br/>Business Wall"]
+    kyc["kyc<br/>Registration"]
+    searchm["search<br/>full-text (wesh)"]
+    notif["notifications"]
+    stripem["stripe<br/>billing"]
+    prefs["preferences"]
+    pub["public · dashboard"]
+  end
+
+  subgraph shared["Shared layers"]
+    security["Security and RBAC<br/>Flask-Security-Too, role checks"]
+    services["Services (svcs DI)<br/>emails · stats · notifications · sessions"]
+    ui["PyWire components<br/>+ WTForms renderer"]
+    models["Models and repositories<br/>SQLAlchemy 2.0 / Advanced-Alchemy"]
+  end
+
+  db[("PostgreSQL")]
+  s3[("Object store")]
+  queue["Dramatiq workers"]
+
+  mods --> security
+  mods --> ui
+  mods --> services
+  mods --> models
+  searchm -->|"BM25 index (in Postgres)"| db
+  services --> queue
+  services --> s3
+  models --> db
+  models --> s3
+```
 
 ## Modules
 

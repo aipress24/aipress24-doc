@@ -1,5 +1,7 @@
 # Le portail Work
 
+![La Newsroom du portail Work](../../screenshots/newsroom.png)
+
 **Work** (Work In Progress) est votre espace de travail professionnel : c'est là que vous produisez vos contenus, gérez vos sollicitations et suivez votre activité. Le menu de gauche donne accès à plusieurs espaces, dont certains dépendent de votre profil.
 
 | Espace | Pour qui | Rôle |
@@ -27,6 +29,8 @@ La **Newsroom** (espace de rédaction des journalistes) regroupe quatre types de
 Chaque type dispose d'une liste (tableau) et d'un formulaire de création/édition. Les contenus partagent des métadonnées communes : **Genre**, **Rubrique**, **Thématique**, **Secteur**, un **Média** (ou média destinataire) et une localisation (**Pays**, **Code postal et ville**).
 
 ### Articles
+
+![Le formulaire de création d'un article](../../screenshots/article-new.png)
 
 C'est le cœur de la production journalistique.
 
@@ -61,6 +65,8 @@ Est considéré comme rédacteur en chef un utilisateur dont le profil est un po
 
 ## Com'room
 
+![La Com'room et ses communiqués](../../screenshots/comroom.png)
+
 La **Com'room** (espace de rédaction pour les relations presse) est destinée aux communicants, experts, academics et transformers. Elle permet de rédiger et publier des **communiqués de presse** (et, pour les agences RP, de proposer des sujets).
 
 Le formulaire d'un communiqué comporte : **Titre**, **Chapô**, **Contenu principal**, les métadonnées, et des dates-clés dont une **date d'embargo** (parution prévue) et une **date de publication effective**.
@@ -73,6 +79,8 @@ Le formulaire d'un communiqué comporte : **Titre**, **Chapô**, **Contenu princ
 L'**Event'room** permet de créer et gérer vos **événements**. Le fonctionnement (formulaire, images, règles de publication) est décrit dans la page [Événements](evenements.md).
 
 ## Opportunités
+
+![L'espace Opportunités](../../screenshots/opportunities.png)
 
 L'espace **Opportunités** (« Mes opportunités ») centralise toutes les sollicitations qui vous concernent, réparties en onglets :
 

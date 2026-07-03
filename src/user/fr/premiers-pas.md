@@ -42,6 +42,8 @@ Une fois votre compte validé, connectez-vous avec votre adresse e-mail et votre
 
 ## Se repérer dans l'interface
 
+![L'interface d'Aipress24 après connexion](../../screenshots/work-dashboard.png)
+
 - La **barre de navigation** en haut de l'écran donne accès aux portails : **News**, **Social**, **Work**, **Marketplace**, **Événements**, **Rechercher**.
 - L'icône **cloche** signale vos [notifications](notifications.md) (avec un badge de non-lues).
 - Votre **nom**, en haut à droite, ouvre l'accès à vos préférences et à la configuration de votre profil.

@@ -12,6 +12,8 @@ The form includes a **title**, a **brief**, the usual metadata (Genre, Heading, 
 
 ### 2. Target contacts
 
+![The expert-targeting step](../../screenshots/avis-ciblage.png)
+
 The **"Cibler les contacts"** (Target contacts) step helps you build the list of experts to reach out to. The platform pre-selects a pool of active experts whose sectors overlap those of the investigation, which you refine with many filters, grouped into four families:
 
 - **Sectors and organisation types** — detailed sectors, organisation types, type of press & media company, organisation size.

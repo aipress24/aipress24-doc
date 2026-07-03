@@ -52,6 +52,8 @@ Several roles can be assigned within a Business Wall:
 
 ## Managing the Business Wall
 
+![The Business Wall management dashboard](../../screenshots/business-wall.png)
+
 The dashboard ("Gérer le Business Wall") groups the management functions, reserved for managers:
 
 - **Edit basic data** — name, headcount (which sets the pricing tier), missions.

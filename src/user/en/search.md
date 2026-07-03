@@ -1,5 +1,7 @@
 # Search
 
+![The Search portal](../../screenshots/search.png)
+
 The **Search** (Rechercher) portal offers cross-platform search from a single entry point.
 
 ## Running a search

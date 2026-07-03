@@ -1,5 +1,7 @@
 # Le portail News
 
+![Le fil d'actualité du portail News](../../screenshots/news-feed.png)
+
 **News** est le portail de lecture de l'actualité : articles, enquêtes, reportages et communiqués issus de sources professionnelles (agences de presse, médias reconnus, organisations). L'accès à News suppose d'être connecté.
 
 ## Les onglets
@@ -45,6 +47,8 @@ Dans le fil, chaque article est présenté sous forme de carte : rubrique, date,
 Le compteur « vues » (icône œil) correspond au nombre de **consultations payantes** de l'article, un indicateur de l'intérêt réellement porté au contenu.
 
 ## La page d'un article
+
+![La page d'un article et sa colonne de métadonnées](../../screenshots/article-view.png)
 
 La page de détail présente le titre, l'auteur, la date de publication (et de dernière modification), un carrousel d'images et le contenu.
 

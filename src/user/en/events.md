@@ -1,5 +1,7 @@
 # The Events portal
 
+![The Events portal](../../screenshots/events.png)
+
 **Events** (Événements) is the news agenda: press conferences, trade shows, symposia, webinars, cultural events, competitions, training courses… The portal is read-only; events are **created** in the **Event'room** of the [Work](work.md) portal.
 
 ## Browsing events
@@ -18,6 +20,8 @@ Each event card shows its opening hours, title, a summary, its type, sector, the
 - **"Votre agenda"** (Your agenda): the list of events you are **accredited** to, sorted by nearness in time. Until you are accredited to any event, a message tells you so.
 
 ## An event's page
+
+![An event's page](../../screenshots/event-detail.png)
 
 The detail page shows:
 

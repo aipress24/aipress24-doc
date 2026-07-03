@@ -1,5 +1,7 @@
 # Le portail Social
 
+![Le Wall du portail Social](../../screenshots/social-wall.png)
+
 **Social** est le réseau professionnel d'Aipress24. Il permet de publier, de suivre des membres et des organisations, de constituer votre carnet de contacts et de rendre votre profil visible. Il s'organise autour de trois espaces : le **Wall**, l'annuaire des **Membres** et l'annuaire des **Organisations**.
 
 ## Le Wall (fil d'activité)
@@ -11,6 +13,8 @@ Le Wall est votre page d'accueil sociale.
 - Chaque message peut être aimé (**J'aime**).
 
 ## L'annuaire des membres
+
+![L'annuaire des membres et ses filtres](../../screenshots/members-directory.png)
 
 L'annuaire liste tous les membres de la plateforme, classés par ordre alphabétique. Un compteur indique le nombre de membres correspondant à vos critères.
 
@@ -24,6 +28,8 @@ L'annuaire liste tous les membres de la plateforme, classés par ordre alphabét
 Ces filtres exploitent la qualification KYC des profils : plus votre profil est complet, plus vous êtes facile à trouver.
 
 ## La fiche d'un membre
+
+![La fiche d'un membre](../../screenshots/member-profile.png)
 
 La fiche d'un membre (accessible en cliquant sur son nom) présente une image de couverture, sa photo, son nom (avec une médaille de **karma** selon sa réputation), sa fonction et son organisation, ainsi qu'un bouton **Suivre / Ne plus suivre**.
 
