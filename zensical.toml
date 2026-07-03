@@ -50,7 +50,7 @@ nav = [
     ] },
     { "Help and support" = "user/en/help.md" },
   ] },
-  { "Developers" = [
+  { "Developers 🇬🇧" = [
     { "Intro" = "dev/index.md" },
     { "Architecture" = "dev/architecture.md" },
     { "Modules" = "dev/modules.md" },
